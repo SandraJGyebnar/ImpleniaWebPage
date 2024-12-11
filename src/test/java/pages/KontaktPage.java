@@ -9,10 +9,12 @@ public class KontaktPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@data-mobile-title='Kontaktieren Sie uns!']//a]")
+    @FindBy(xpath = "//div[@data-mobile-title='Kontaktieren Sie uns!']//a")
     private WebElement kontaktierenSieUnsElement;
 
     public void clickKontaktierenSieUnsElement(){
         elementsMethods.clickElement(kontaktierenSieUnsElement);
     }
+
+    //public void fill
 }

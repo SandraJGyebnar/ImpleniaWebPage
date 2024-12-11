@@ -41,7 +41,7 @@ public class ElementsMethods {
     }
 
     public void waitVisibleElement(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -56,6 +56,16 @@ public class ElementsMethods {
         element.clear();
         element.sendKeys(text);
 
+    }
+
+    public void scrollToElement(WebElement element){
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void scrollToBottom() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 
 }
