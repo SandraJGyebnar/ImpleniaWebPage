@@ -12,12 +12,13 @@ public class JobSearchInDeutschlandTest extends Hooks {
     @Test
     public void metodaTest(){
 
-        JobSearchInDeutschlandModel testData = new JobSearchInDeutschlandModel(DataConfig.JOBSEARCH_DATA);
 
         HomePage homePage = new HomePage(getDriver());
         homePage.clickStellangebotButton();
 
         JobSearchPage jobSearchPage = new JobSearchPage(getDriver());
+        JobSearchInDeutschlandModel testData = new JobSearchInDeutschlandModel(DataConfig.JOBSEARCH_DATA);
+
         jobSearchPage.jobsSucheInDeutschland(testData);
 
     }

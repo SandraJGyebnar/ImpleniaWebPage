@@ -4,14 +4,13 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import sharedData.Hooks;
 
-public class JobBewerbenTest extends Hooks {
+public class HomePageTest extends Hooks {
 
     @Test
-    public void metodaTest(){
+    public void testMethod(){
 
         HomePage homePage = new HomePage(getDriver());
-        homePage.clickStellangebotButton();
-
+        homePage.checkHeroVideoElement();
+        homePage.checkSpotlightAnsehenButtonVisible();
     }
-
-    }
+}

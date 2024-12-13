@@ -50,20 +50,11 @@ public class JobSearchPage extends BasePage{
 
 
     public void jobsSucheInDeutschland(JobSearchInDeutschlandModel testData){
-        elementsMethods.clickJSElement(landElement);
-        WebElement deutschLandElement = driver.findElement(By.id("tomselect-1-opt-2"));
-//        elementsMethods.clickElement(deutschLandElement);
-//
-//
-//        WebElement stadtElement = driver.findElement(By.id("tomselect-32-opt-50"));
-//        elementsMethods.clickElement(stadtElement);
-//        WebElement taetigkeitsbereichElement = driver.findElement(By.id("tomselect-4-ts-control"));
-//        elementsMethods.clickElement(taetigkeitsbereichElement);
-//        elementsMethods.selectDropDownElement(landElement,testData.getLandElement());
-//        elementsMethods.selectDropDownElement(stadtElement,testData.getStadtElement());
-//        elementsMethods.selectDropDownElement(taetigkeitsbereichElement, testData.getTaetigkeitsbereichElement());
-//        elementsMethods.selectDropDownElement(anstellungsverhaeltnisElement,testData.getAnstellungsverhaeltnisElement());
-//        elementsMethods.selectDropDownElement(gesellschaftElement,testData.getGesellschaftElement());
+        elementsMethods.selectDropDownElement(landElement,testData.getLandElement());
+        elementsMethods.selectDropDownElement(stadtElement, testData.getStadtElement());
+        elementsMethods.selectDropDownElement(taetigkeitsbereichElement, testData.getTaetigkeitsbereichElement());
+        elementsMethods.selectDropDownElement(anstellungsverhaeltnisElement, testData.getAnstellungsverhaeltnisElement());
+        elementsMethods.selectDropDownElement(gesellschaftElement, testData.getGesellschaftElement());
 
 
     }
