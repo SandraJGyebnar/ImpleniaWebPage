@@ -14,6 +14,8 @@ public class KontaktFormModel extends BaseModel{
     private String adresseElement;
     private String telefonElement;
     private String nachrichtElement;
+    private String erfolgreichGesndetNachricht;
+
 
     public KontaktFormModel(String jsonFilePath) {
         super(jsonFilePath);

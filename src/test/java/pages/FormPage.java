@@ -29,7 +29,7 @@ public class FormPage extends BasePage{
     private WebElement submitElement;
     @FindBy(xpath = "//iframe[@class='mfp-iframe']")
     private  WebElement kontaktFrame;
-    @FindBy(id = "c368066")
+    @FindBy(xpath = "//div[@class='powermail_create']")
     private WebElement erfolgreichGesndetNachricht;
 
     public FormPage(WebDriver driver) {
@@ -44,20 +44,45 @@ public class FormPage extends BasePage{
 
     public void fillKontaktForm(KontaktFormModel testData){
         elementsMethods.fillElement(vornameElement,testData.getVornameElement());
+        LoggerUtillity.infoLog("Vorname wurde ausgefuellt");
+
         elementsMethods.fillElement(nachnameElement,testData.getNachnameElement());
+        LoggerUtillity.infoLog("Nachname wurde ausgefuellt");
+
         elementsMethods.fillElement(emailElement,testData.getEmailElement());
+        LoggerUtillity.infoLog("Email wurde ausgefuellt");
+
+
         elementsMethods.fillElement(unternehmenElement,testData.getUnternehmenElement());
+        LoggerUtillity.infoLog("Unternehme wurde ausgefuellt");
+
         elementsMethods.fillElement(adresseElement,testData.getAdresseElement());
+        LoggerUtillity.infoLog("Adresse wurde ausgefuellt");
+
         elementsMethods.fillElement(telefonElement,testData.getTelefonElement());
+        LoggerUtillity.infoLog("Telefon wurde ausgefuellt");
+
         elementsMethods.fillElement(nachrichtElement,testData.getNachrichtElement());
+        LoggerUtillity.infoLog("Nachricht wurde ausgefuellt");
+
         elementsMethods.scrollToBottom();
+        LoggerUtillity.infoLog("Seite wurde gescrollt");
+
         elementsMethods.clickElement(checkDatenschutzElement);
+        LoggerUtillity.infoLog("Datenschutz wurde markiert");
+
         elementsMethods.clickJSElement(submitElement);
+        LoggerUtillity.infoLog("Kontakt Formular wurde gesendet");
+
 
     }
 
-    public void validateFormValues() {
+    public void validateFormSendComfirmation() {
         elementsMethods.waitVisibleElement(erfolgreichGesndetNachricht);
-        Assert.assertEquals(erfolgreichGesndetNachricht.getText(), "Kontaktformular");
+        String actualMessage = erfolgreichGesndetNachricht.getText();
+        String expectedMessage = "✓ Vielen Dank für Ihre Nachricht. Wir kontaktieren Sie in Kürze.";
+
+        Assert.assertEquals(actualMessage, expectedMessage, "Die Bestätigungsnachricht ist falsch!");
+        LoggerUtillity.infoLog("Die Erfolgsmeldung '" + actualMessage + "' wurde validiert.");
     }
 }

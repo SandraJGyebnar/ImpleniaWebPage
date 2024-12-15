@@ -6,6 +6,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class HomePage extends BasePage{
 
@@ -21,7 +22,18 @@ public class HomePage extends BasePage{
     private WebElement heroVideoElement;
     @FindBy(xpath = "//div[@class='caption__content']//a[@class='button button--primary js-data-analytics']")
     private WebElement spotlightAnsehenButtonElement;
-
+    @FindBy(xpath = "//div[@id='c328647']//h3[@class='module-title mobile-accordion__title [ js-mobile-accordion-title ]']")
+    private WebElement adhocMitteilungenElement;
+    @FindBy(id="c307411")
+    private WebElement medienMitteillungenElement;
+    @FindBy (id = "c307410")
+    private WebElement themenUndProjekteElement;
+    @FindBy(id = "c328657")
+    private WebElement reportsElement;
+    @FindBy(xpath = "//div[@class='site-header__main']")
+    private WebElement mainServiceNavigationElement;
+    @FindBy(xpath = "//a[@data-menu-id='main-menu-item-5']")
+    private WebElement ueberUnsButton;
 
 
     public void clickKontaktButton(){
@@ -61,14 +73,79 @@ public class HomePage extends BasePage{
     }
 
     // Method to check if the button is visible
-    public boolean checkSpotlightAnsehenButtonVisible() {
-        LoggerUtillity.infoLog("Hero Video ist sichtbar");
+    public boolean checkSpotlightAnsehenButtonVisibility() {
+        LoggerUtillity.infoLog("Spotlight Ansehen Button ist sichtbar");
         try {
             return spotlightAnsehenButtonElement.isDisplayed();
         } catch (Exception e) {
             return false; // If the element is not found or not visible
         }
     }
+
+    public boolean checkAdhocMitteilungenElementVisibility() {
+        LoggerUtillity.infoLog("Adhoc Mitteilungen ist sichtbar");
+
+        try {
+            return adhocMitteilungenElement.isDisplayed();
+        } catch (Exception e) {
+            return false; // Return false if element is not found or not visible
+        }
+
+
+    }
+
+
+    // Method to check if 'medienMitteillungenElement' is visible
+    public boolean checkMedienMitteillungenElementVisibility() {
+        LoggerUtillity.infoLog("Medien Mitteilungen ist sichtbar");
+        try {
+            return medienMitteillungenElement.isDisplayed();
+        } catch (Exception e) {
+            return false; // Return false if element is not found or not visible
+        }
+    }
+
+    // Method to check if 'themenUndProjekteElement' is visible
+    public boolean checkThemenUndProjekteElementVisibility() {
+        LoggerUtillity.infoLog("Themen und Projekte ist sichtbar");
+        try {
+            return themenUndProjekteElement.isDisplayed();
+        } catch (Exception e) {
+            return false; // Return false if element is not found or not visible
+        }
+    }
+
+    // Method to check if 'reportsElement' is visible
+    public boolean checkReportsElementVisibility() {
+        LoggerUtillity.infoLog("Reportsvist sichtbar");
+        try {
+            return reportsElement.isDisplayed();
+        } catch (Exception e) {
+            return false; // Return false if element is not found or not visible
+        }
+    }
+
+    public boolean checkMainNavigationServiceVisibility() {
+        LoggerUtillity.infoLog("Main Navigation Menu ist sichtbar");
+        try {
+            return mainServiceNavigationElement.isDisplayed();
+        } catch (Exception e) {
+            return false; // Return false if element is not found or not visible
+        }
+    }
+
+    public void clickUeberUnsButton(){
+        elementsMethods.clickJSElement(ueberUnsButton);
+        LoggerUtillity.infoLog("Ueber uns ist geklickt.");
+
+
+    }
+
+
+
+
+
+
 
 
 

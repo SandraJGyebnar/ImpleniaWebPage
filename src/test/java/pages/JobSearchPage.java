@@ -1,5 +1,6 @@
 package pages;
 
+import loggerUtillity.LoggerUtillity;
 import lombok.Getter;
 import lombok.Setter;
 import modelObject.JobSearchInDeutschlandModel;
@@ -7,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 @Getter
 @Setter
@@ -51,13 +53,32 @@ public class JobSearchPage extends BasePage{
 
     public void jobsSucheInDeutschland(JobSearchInDeutschlandModel testData){
         elementsMethods.selectDropDownElement(landElement,testData.getLandElement());
+        LoggerUtillity.infoLog("Land wurde ausgewaehlt");
+        Assert.assertEquals(landElement, testData.getLandElement(), "Land selection mismatch!");
+
+
         elementsMethods.selectDropDownElement(stadtElement, testData.getStadtElement());
+        LoggerUtillity.infoLog("Stand wurde ausgewaehlt");
+        Assert.assertEquals(stadtElement, testData.getStadtElement(), "Stadt selection mismatch!");
+
         elementsMethods.selectDropDownElement(taetigkeitsbereichElement, testData.getTaetigkeitsbereichElement());
+        LoggerUtillity.infoLog("Taetigkeits Bereich wurde ausgewaehlt");
+        Assert.assertEquals(taetigkeitsbereichElement, testData.getTaetigkeitsbereichElement(), "Taetigkeitsbereich selection mismatch!");
+
+
         elementsMethods.selectDropDownElement(anstellungsverhaeltnisElement, testData.getAnstellungsverhaeltnisElement());
+        LoggerUtillity.infoLog("Anstellungsverhaeltnis wurde ausgewaehlt");
+        Assert.assertEquals(anstellungsverhaeltnisElement, testData.getAnstellungsverhaeltnisElement(), "Anstellungsverhaeltnis selection mismatch!");
+
+
         elementsMethods.selectDropDownElement(gesellschaftElement, testData.getGesellschaftElement());
+        LoggerUtillity.infoLog("Gesellschaft wurde ausgewaehlt");
+        Assert.assertEquals(gesellschaftElement, testData.getGesellschaftElement(), "Gesellschaft selection mismatch!");
 
 
     }
+
+
 
 
 

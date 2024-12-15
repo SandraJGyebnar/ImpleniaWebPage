@@ -1,8 +1,10 @@
 package pages;
 
+import loggerUtillity.LoggerUtillity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class KontaktPage extends BasePage{
     public KontaktPage(WebDriver driver) {
@@ -14,7 +16,10 @@ public class KontaktPage extends BasePage{
 
     public void clickKontaktierenSieUnsElement(){
         elementsMethods.clickElement(kontaktierenSieUnsElement);
+        LoggerUtillity.infoLog("Kontaktieren Sie uns wurde angeklickt");
     }
 
-    //public void fill
+
+
+
 }

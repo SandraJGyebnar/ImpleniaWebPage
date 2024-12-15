@@ -24,8 +24,7 @@ public class ContactUsTest extends Hooks {
         FormPage formPage = new FormPage(getDriver());
         formPage.dealKontaktFrame();
         formPage.fillKontaktForm(testData);
-        //  formPage.validateFormValues();
-        //nu am reusit sa fac validarea. nu ma prind care ii buba
+        formPage.validateFormSendComfirmation();
 
     }
 
